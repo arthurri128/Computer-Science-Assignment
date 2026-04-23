@@ -79,5 +79,20 @@ def main():
             except:
                 print("Invalid Input")
 
+        # 3. (Remove Product)
+        elif decision == "3":
+            sku = input("Enter SKU for removal: ")
 
+            # Search through the locations
+            found = False
+            for row in warehouse.grid:
+                for location in row:
+                    if location:
+                        for product in location.products:
+                            if product.sku == sku:
+                                location.remove_product(sku)
+                                found = True
+                                break
+            if not found:
+                print("Product could not be found")
 main()
