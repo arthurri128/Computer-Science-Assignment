@@ -127,4 +127,12 @@ def main():
         # 6. (Display Warehouse Grid)
         elif decision == "6":
             warehouse.display_grid()
+        
+        # 7. (Exit)
+        elif decision == "7":
+            print("Exiting Inventory Management System")
+            break
+            
+        #If Decision is not a possible option (Invalid Input)
+        print("Invalid Input")
 main()
