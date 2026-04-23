@@ -2,26 +2,52 @@ from location import Location
 from product import Product
 from warehouse import Warehouse
 
+# Main GUI of the program
+def main():
+    # Create the Warehouse on a 5 by 5 grid
+    warehouse = Warehouse(5, 5)
 
-## Test for program to check classes working correctly
+    while True:
+        # Menu User is intitally Shown
+        print("\nInventory Management System")
+        print("1. Add Location")
+        print("2. Add Product")
+        print("3. Remove Product")
+        print("4, Update Quantity")
+        print("5. Search Product")
+        print("6. Display Warehouse")
+        print("7. Exit")
+        print()
 
-# Creating a Warehouse
-warehouse = Warehouse(5, 5)
+        # User Choice
+        decision = input("Enter choice: ")
 
-# Creates a location
-loc = Location(0, 0, 5)
-warehouse.add_location(loc)
+        # 1. (Add Location)
+        if decision == "1":
+            try:
+                # Allows for user to create locations
+                row = int(input("Enter row: "))
+                col = int(input("Enter column: "))
+                capacity = int(input("Enter Capacity: "))
 
-#Creating a test product
-product = Product("Foil", "ABC123", 1.45, 50)
+                # Boundary Check (Validation)
+                if row < 0 or row >= warehouse.rows or col < 0 or col >= warehouse.cols:
+                    print("Invalid Position")
+                    continue
 
-# Adding product to locaiton 
-loc.add_product(product)
+                # Check if location already exists
+                if warehouse.grid[row][col] is not None:
+                    print("Location already exists")
+                    continue
+                
+                # Adding location
+                loc = Location(row, col, capacity)
+                warehouse.add_location(loc)
 
-# Display the result
-warehouse.display_grid()
+                print("Location has been added")
+            except:
+                print("Invalid Input")
 
-# Search test
-found = warehouse.search_product("ABC123")
-if found:
-    found.display()
+
+
+main()
