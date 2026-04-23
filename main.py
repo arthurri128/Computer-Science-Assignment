@@ -22,6 +22,8 @@ def main():
         # User Choice
         decision = input("Enter choice: ")
 
+        print()
+
         # 1. (Add Location)
         if decision == "1":
             try:
@@ -48,6 +50,34 @@ def main():
             except:
                 print("Invalid Input")
 
+        # 2. (Add Product)
+        elif decision == "2":
+            try:
+                name = input("Enter Product Name: ")
+                sku = input("Enter SKU: ")
+                price = float(input("Enter Price: "))
+                quantity = int(input("Enter quantity: "))
+
+                if quantity < 0:
+                    print("Quantity cannot be negative")
+                    continue
+
+                # Choose location
+                row = int(input("Enter location row: "))
+                col = int(input("Enter location column: "))
+
+                if row < 0 or row >= warehouse.rows or col < 0 or col >= warehouse.cols:
+                    print("Invalid Location")
+                    continue
+
+                location = warehouse.grid[row][col]
+
+                if location:
+                    product = Product(name, sku, price, quantity)
+                    location.add_product(product)
+                else: print("No location exists in that area")
+            except:
+                print("Invalid Input")
 
 
 main()
