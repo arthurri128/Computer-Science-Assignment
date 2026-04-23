@@ -3,7 +3,7 @@ class Location:
     def __init__(self, row, col, capacity):
         # The position of within the 2D grid
         self.row = row
-        self. col = col
+        self.col = col
 
         # Max allotted capcity given by User
         self.capacity = capacity

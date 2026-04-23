@@ -35,5 +35,5 @@ class Warehouse:
                 if location:
                     product = location.find_product(sku)
                     if product:
-                        print(product)
+                        return product
         return None
