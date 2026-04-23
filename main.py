@@ -78,6 +78,7 @@ def main():
                 else: print("No location exists in that area")
             except:
                 print("Invalid Input")
+                print()
 
         # 3. (Remove Product)
         elif decision == "3":
@@ -95,4 +96,21 @@ def main():
                                 break
             if not found:
                 print("Product could not be found")
+            print()
+        
+        # 4. (Update Quantity)
+        elif decision == "4":
+            sku = input("Enter SKU: ")
+            product = warehouse.search_product(sku)
+
+            if product:
+                try:
+                    amount = int(input("Enter change in quantity: "))
+                    product.update_quantity(amount)
+                    print("Quantity has been changed")
+                except:
+                    print("Invalid Input ")
+            else:
+                print("Product not found")
+            print()
 main()
