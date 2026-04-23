@@ -134,5 +134,6 @@ def main():
             break
             
         #If Decision is not a possible option (Invalid Input)
+        else:
         print("Invalid Input")
 main()
