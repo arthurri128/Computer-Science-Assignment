@@ -113,4 +113,14 @@ def main():
             else:
                 print("Product not found")
             print()
+        
+        # 5. (Search Product)
+        elif decision == "5":
+            sku = input("Enter SKU: ")
+            product = warehouse.search_product(sku)
+
+            if product:
+                product.display()
+            else: 
+                print("Product not found")
 main()
