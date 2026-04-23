@@ -123,4 +123,8 @@ def main():
                 product.display()
             else: 
                 print("Product not found")
+
+        # 6. (Display Warehouse Grid)
+        elif decision == "6":
+            warehouse.display_grid()
 main()
